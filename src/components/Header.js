@@ -3,7 +3,7 @@ import '..components/tt.css';
 
 function Header(){
     return(
-        <header class="header">
+        <header className="header">
             <h2>Smart Expense Tracker</h2>
         </header>
     );
