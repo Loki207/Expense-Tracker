@@ -8,8 +8,8 @@ header.js
    } */
 
    .header {
-  color: rgb(3, 96, 236);
-  padding: 15px;
+  color: rgb(108, 236, 3);
+  padding: 40px;
   text-align: center;
   border-bottom: 3px solid #0057b3c6;
 }
