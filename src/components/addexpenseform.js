@@ -1,27 +1,19 @@
-// AddExpenseForm.js
 import React, { useState } from 'react';
 
-function AddExpenseForm({ onAddExpense }) {
+function AddExpenseForm() {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
-  const [date, setDate] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newExpense = {
-      id: Date.now(),
-      title,
-      amount: parseFloat(amount),
-      date
-    };
-    onAddExpense(newExpense);
+    alert(`Expense: ${title}, Amount: ₹${amount}`);
     setTitle('');
     setAmount('');
-    setDate('');
   };
 
   return (
-    <form onSubmit={handleSubmit} className="expense-form">
+    <form onSubmit={handleSubmit}>
+      <h3>Add Expense</h3>
       <input
         type="text"
         placeholder="Expense Title"
@@ -29,6 +21,7 @@ function AddExpenseForm({ onAddExpense }) {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
+      <br />
       <input
         type="number"
         placeholder="Amount ₹"
@@ -36,16 +29,12 @@ function AddExpenseForm({ onAddExpense }) {
         onChange={(e) => setAmount(e.target.value)}
         required
       />
-      <input
-        type="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-        required
-      />
-      <button type="submit">Add Expense</button>
+      <br />
+      <button type="submit">Add</button>
     </form>
   );
 }
 
 export default AddExpenseForm;
+
 
