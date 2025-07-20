@@ -1,42 +1,51 @@
-import React from 'react';
+// AddExpenseForm.js
+import React, { useState } from 'react';
 
-function AddExpenseForm() {
+function AddExpenseForm({ onAddExpense }) {
+  const [title, setTitle] = useState('');
+  const [amount, setAmount] = useState('');
+  const [date, setDate] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newExpense = {
+      id: Date.now(),
+      title,
+      amount: parseFloat(amount),
+      date
+    };
+    onAddExpense(newExpense);
+    setTitle('');
+    setAmount('');
+    setDate('');
+  };
+
   return (
-    <div style={tyles.formContainer}>
-      <h3>Add Expense</h3>
-      <form>
-        <input type="text" placeholder="Expense Name" style={tyles.input} />
-        <input type="number" placeholder="Amount (₹)" style={tyles.input} />
-        <button type="submit" style={tyles.button}>Add</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className="expense-form">
+      <input
+        type="text"
+        placeholder="Expense Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        required
+      />
+      <input
+        type="number"
+        placeholder="Amount ₹"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+        required
+      />
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
+        required
+      />
+      <button type="submit">Add Expense</button>
+    </form>
   );
 }
 
-const tyles = {
-  formContainer: {
-    background: '#f1f1f1',
-    padding: '15px',
-    borderRadius: '10px',
-    width: '300px',
-    margin: '20px auto'
-  },
-  input: {
-    display: 'block',
-    margin: '10px 0',
-    padding: '8px',
-    width: '90%',
-    fontSize: '1rem'
-  },
-  button: {
-    background: '#28a745',
-    color: 'white',
-    padding: '8px 12px',
-    border: 'none',
-    cursor: 'pointer',
-    width: '100%',
-    fontSize: '1rem'
-  }
-};
-
 export default AddExpenseForm;
+
