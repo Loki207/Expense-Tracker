@@ -3,12 +3,14 @@ import React, { useState } from 'react';
 function AddExpenseForm() {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
+  const [date,setdate]=useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Expense: ${title}, Amount: ₹${amount}`);
+    alert(`Expense: ${title}, Amount: ₹${amount} ,date:${date}`);
     setTitle('');
     setAmount('');
+    setdate('');
   };
 
   return (
@@ -21,7 +23,7 @@ function AddExpenseForm() {
         onChange={(e) => setTitle(e.target.value)}
         required
       />
-      <br />
+     <br/>
       <input
         type="number"
         placeholder="Amount ₹"
@@ -30,6 +32,13 @@ function AddExpenseForm() {
         required
       />
       <br />
+      <input 
+      type="date"
+      placeholder="date" 
+      value={date}
+      onChange={(e)=>setdate(e.target.value)}
+      required />
+      <br/>
       <button type="submit">Add</button>
     </form>
   );
