@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 
-function AddExpenseForm() {
+function AddExpenseForm({onaddexpense}) {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [date,setdate]=useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Expense: ${title}, Amount: ₹${amount} ,date:${date}`);
+    const newexpense={
+      id:Date.now(),
+      title,
+      amount,date
+    }
+    onaddexpense(newexpense);
     setTitle('');
     setAmount('');
     setdate('');
