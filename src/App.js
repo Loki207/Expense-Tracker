@@ -6,8 +6,9 @@ import Expenselist from './components/expenselist';
 function Start(){
   const [expense ,setexpense]=useState([])
   const addexpensehandle =(newexpense) =>{
-    setexpense((prevexpenses) => [...prevexpenses, newexpense]);
-    
+    setexpense((prevexpenses) => [...prevexpenses, newexpense])
+  };
+
      const handleDeleteExpense = (id) => {
     setexpense((prev) => prev.filter((e) => e.id !== id));
   };
@@ -22,5 +23,5 @@ function Start(){
       </div>
   );
   }
-}
+
   export default Start;
