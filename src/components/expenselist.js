@@ -1,12 +1,12 @@
 import React from 'react';
- function Expenselist(expense,ondelete){
-    if (expense.length === 0) {
+ function Expenselist(newexpense,ondelete){
+    if (newexpense.length === 0) {
     return <p>No expenses added yet.</p>;
   }
 
   return (
     <ul style={styles.list}>
-      {expense.map((expense) => (
+      {newexpense.map((expense) => (
         <li key={expense.id} style={styles.item}>
           <div>
             <strong>{expense.title}</strong> - ₹{expense.amount} - {expense.date}
