@@ -1,26 +1,19 @@
-import React, { useState } from 'react';
-import Header from'header';
-import AddExpenseForm from './AddExpenseForm';
-import Expenselist from './Expenselist';
-import Summary from './Summary';
+import React,{useState} from 'react';
+import Header from './components/Header';
+import AddExpenseForm from './components/addexpenseform';
 
-function Start() {
-  const [expenses, setExpenses] = useState([]);
-
-  const handleAddExpense = (expense) => {
-    setExpenses((prevExpenses) => [expense, ...prevExpenses]);
-  };
-
+function Start(){
+  const [expense,setexpense]=useState([]);
+  const handleaddexpense=(newexpense)=>{
+   setexpense([...expense, newexpense]);
+  }
   return (
     <div>
-
-      <Header/>
-      <AddExpenseForm onAddExpense={handleAddExpense} />
-      <Summary expenses={expenses} />
-      <Expenselist expenses={expenses} /> 
-    </div>
+      <Header />
+      <AddExpenseForm onAddExpense={handleaddexpense}/>
+      
+     
+      </div>
   );
-}
-
-export default Start;
-
+  }
+  export default Start;
