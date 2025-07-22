@@ -9,13 +9,14 @@ function AddExpenseForm({ onAddExpense }) {
     e.preventDefault();
 
     const newExpense = {
+      id:date.now(),
       title,
       amount,
       date,
     };
 
     onAddExpense(newExpense);
-    alert(`title:${title}`);
+  
     setTitle('');
     setAmount('');
     setDate('');
