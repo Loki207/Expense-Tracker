@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Header from './components/Header';
 import AddExpenseForm from './components/addexpenseform';
 import ExpenseList from './components/expenselist';
+// import Summary from './components/summary';
 
 function Start(){
   const [expense,setexpense]=useState([]);
@@ -17,6 +18,7 @@ function Start(){
       <AddExpenseForm onAddExpense={handleaddexpense}/>
       <h3>Expense List</h3>
       <ExpenseList expense={expense} onDelete={handleDeleteExpense} />
+      {/* <Summary expense={expense}/> */}
       
      
       </div>

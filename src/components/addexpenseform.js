@@ -9,7 +9,7 @@ function AddExpenseForm({ onAddExpense }) {
     e.preventDefault();
 
     const newExpense = {
-      id:date.now(),
+      id:Date.now(),
       title,
       amount,
       date,
