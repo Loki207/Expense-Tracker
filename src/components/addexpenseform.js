@@ -16,6 +16,7 @@ function AddExpenseForm({ onAddExpense }) {
     };
 
     onAddExpense(newExpense);
+    alert(`${title}`)
   
     setTitle('');
     setAmount('');
